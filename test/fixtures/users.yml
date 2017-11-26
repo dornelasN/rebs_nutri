@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# organize data to be loaded into the test database
+
+nelson:
+  name: Nelson Example
+  email: nelson@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+non: 
+  name: Mike Not Activated
+  email: mike@notactivated.com
+  password_digest: <%= User.digest('password') %>
+  activated: false
+
+testUser:
+  name: Test Example
+  email: test@example.edu
+  password_digest: <%= User.digest('password') %> 
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+archer: 
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %> 
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+lana: 
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: <%= User.digest('password') %> 
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User#{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+<% end %>

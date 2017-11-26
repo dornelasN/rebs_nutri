@@ -1,0 +1,24 @@
+<% provide(:title, "Contact") %>
+
+<h1>Contato</h1>
+
+<%= form_for(@message, url: contact_path) do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Nome", class: "form-control" %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, placeholder: "email", class: "form-control" %>
+
+  <%= f.label :mensagem %>
+  <%= f.text_area :content, placeholder: "Mensagem", class: "form-control" %>
+
+  <%= f.submit "Enviar", class: "btn btn-primary" %>
+<% end %>
+
+<div class="center">
+  <h3>
+    <i class="fa fa-envelope"></i>  rebecacipriano@hotmail.com |  
+    <i class="fa fa-whatsapp" aria-hidden="true"></i> (48) 99959 - 0810
+  </h3>
+</div>
