@@ -6,10 +6,14 @@ class MessageMailer < ApplicationMailer
   #   en.user_mailer.new_message.subject
   #
 
+  #default from: "contact-message@rebnutri.com"
+
   def new_message(message)
     @message = message
 
-    mail to: "ndornelasj@gmail.com", subject: "Mensagem de contato pelo website"
+    mail  from: @message.email,
+          to: "ndornelasj@gmail.com",
+          subject: "Mensagem de contato pelo website"
   end
 
 end

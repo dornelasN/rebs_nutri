@@ -7,10 +7,10 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
 
-    if @message.valid?
+    if @message.save
       MessageMailer.new_message(@message).deliver_now
-      redirect_to contact_path
       flash[:success] = "Sua mensagem de contato foi enviada para rebecacipriano@hotmail.com"
+      redirect_to contact_path
     else
       flash[:danger] = "Ocorreu um erro com sua mensagem."
       redirect_to contact_path
