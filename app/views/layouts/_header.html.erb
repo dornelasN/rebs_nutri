@@ -3,10 +3,10 @@
       <%= link_to "rebs nutri", root_path, id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home",   root_path %></li>
+          <!--li><%= link_to "Home",   root_path %></li-->
           <% if logged_in? %>
-            <% #links for logged in user (Account Management:view profile, settings, log out) %>
-            <li><%= link_to "Users", users_path %></li>
+            <!-- #links for logged in user (Account Management:view profile, settings, log out) -->
+            <li><%= link_to "Users", users_path %></li> <!-- TODO: only admin should be able to see list of users-->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" background-color="black">
                 Account <b class="caret"></b>
@@ -19,7 +19,9 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Log in", login_path %></li>
+          <!-- Links for non-logged in users: Log in and create account -->
+            <li><%= link_to "Sign up", signup_path %></li>
+            <li><%= link_to "Log in",  login_path %></li>
           <% end %>  
         </ul>
       </nav>
