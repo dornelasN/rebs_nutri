@@ -1,3 +1,21 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <% if current_user.admin? %>
+        <span class="picture">
+          <%= render 'shared/diet_form' %>
+        </span>
+      <% end %>
+    </aside>
+    <!--TODO: Show list of registered users -->
+    <aside class="cold-md-8">
+      <h3>List of registered users with number of diets</h3>
+    </aside>
+  </div>
+<% else %>
 <div class="center jumbotron">
   <h1>Rebeca Cipriano</h1>
 
@@ -16,3 +34,4 @@
   </section>
   
 </div>
+<% end %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get     '/about',    to: 'static_pages#about'
   #get     '/contact',  to: 'static_pages#contact'
   get     '/contact',  to: 'messages#new', as: 'contact'
-  post    '/contact',   to: 'messages#create'
+  post    '/contact',  to: 'messages#create'
   get     '/signup',   to: 'users#new'
   post    '/signup',   to: 'users#create'
   get     '/login',    to: 'sessions#new'
@@ -24,4 +24,10 @@ Rails.application.routes.draw do
   # GET - /password_resets/<token>/edit - edit - edit_password_reset_path(token)
   # POST - /password_resets/<token> - update - update_password_reset_url(token)
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  # Interface to the Diets resource will run mainly through Profile and Home pages
+  # so there is only need for the create and destroy actions in the Diets controller
+  # POST - /diets - create - diets_path
+  # DELETE - /diets/1 - destroy - diet_path(diet)
+  resources :diets, only: [:create, :destroy]
 end

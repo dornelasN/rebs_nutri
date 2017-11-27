@@ -8,20 +8,28 @@
         <%= @user.name %>
       </h1>
     </section>
+    <% if current_user.admin? && !current_user?(@user) %>
+      <span class="picture">
+        <%= render 'shared/diet_form' %>
+      </span>
+    <% end %>
   </aside>
   <% if current_user.admin? && !current_user?(@user)%>
-    <aside class="col-md-8">
-      <h1>Dietas</h1>
-      <!-- TODO: admin user should be able to upload a diet PDF file to each user-->
-      <!-- create a Model for diets: foreign key for user id and link to AWS S3 pdf file -->
-      <!-- so users can have more than one diets, the most recent should be displayed in the main page-->
-      <!-- and have a list of past diets that the user and admin can see -->
+    <!--% if @user.diets.any? %-->
+      <aside class="col-md-8">
+        <h3>Dietas</h3>
+        <!--%= image_tag diet.picture.url if diet.picture? %-->
+        <!-- TODO: admin user should be able to upload a diet PDF file to each user-->
+        <!-- create a Model for diets: foreign key for user id and link to AWS S3 pdf file -->
+        <!-- so users can have more than one diets, the most recent should be displayed in the main page-->
+        <!-- and have a list of past diets that the user and admin can see -->
 
-      <!-- TODO after PDF upload is ready: 
-            - diet model should be more detailed instead of only uploading pdf file
-            - detailes breakfast, lunch, dinner
-            - ingredients, recipes.
-      -->
-    </aside>
-  <% end %>
+        <!-- TODO after PDF upload is ready: 
+              - diet model should be more detailed instead of only uploading pdf file
+              - detailes breakfast, lunch, dinner
+              - ingredients, recipes.
+        -->
+      </aside>
+    <% end %>
+  <!--% end %-->
 </div>

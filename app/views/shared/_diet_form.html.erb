@@ -1,0 +1,4 @@
+<%= form_for(Diet.new) do |f| %> <!--TODO: change Diet.new to @diet: not working atm - controller uninitialized?-->
+  <%= f.file_field :picture %>
+  <%= f.submit "Adicionar Dieta", class: "btn btn-primary" %>
+<% end %>

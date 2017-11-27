@@ -8,7 +8,7 @@ class MessageMailerTest < ActionMailer::TestCase
     assert message.valid?
     assert_equal "Mensagem de contato pelo website", mail.subject
     assert_equal ["ndornelasj@gmail.com"], mail.to
-    assert_equal ["contact-message@rebnutri.com"], mail.from
+    assert_equal [message.email], mail.from
     assert_match message.name,    mail.body.encoded
     assert_match message.email,   mail.body.encoded
     assert_match message.content, mail.body.encoded
