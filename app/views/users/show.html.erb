@@ -14,7 +14,7 @@
       </span>
     <% end %>
   </aside>
-  <% if current_user.admin? && !current_user?(@user)%>
+  <% if current_user.admin? || current_user?(@user)%>
     <!--% if @user.diets.any? %-->
       <aside class="col-md-8">
         <h3>Dietas</h3>
@@ -23,7 +23,7 @@
         <!-- create a Model for diets: foreign key for user id and link to AWS S3 pdf file -->
         <!-- so users can have more than one diets, the most recent should be displayed in the main page-->
         <!-- and have a list of past diets that the user and admin can see -->
-
+        <%= render 'diet/index' %>
         <!-- TODO after PDF upload is ready: 
               - diet model should be more detailed instead of only uploading pdf file
               - detailes breakfast, lunch, dinner

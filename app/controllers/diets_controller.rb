@@ -1,15 +1,19 @@
 class DietsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:index, :create, :destroy]
   
+  def index
+    @diets = Diet.all
+  end
+
   def new
     @diet = Diet.new
   end
 
   def create
-    @diet = user.diets.build(diet_params)
+    @diet = current_user.diets.build(diet_params)
     if @diet.save
       flash[:success] = "Diet uploaded!"
-      redirect_to user
+      redirect_to root_url
     else
       flash[:danger] = "Problem with upload!"
       redirect_to root_path

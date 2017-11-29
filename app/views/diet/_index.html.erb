@@ -1,0 +1,7 @@
+<ul class="users">
+  <%= Diet.all.each do |diet| %> <!--TODO: As in _diet_form, figure out why @diets is not working -->
+    <li>
+      <%= image_tag diet.picture.url if diet.picture? %>
+    </li>
+  <% end %>
+</ul>

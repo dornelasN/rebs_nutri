@@ -10,9 +10,12 @@
         </span>
       <% end %>
     </aside>
-    <!--TODO: Show list of registered users -->
+    <!--TODO: Show list of registered users and number of diets -->
     <aside class="cold-md-8">
-      <h3>List of registered users with number of diets</h3>
+      <div class="users">
+        <h3>List of diets (pictures atm)</h3>
+        <%= render 'diet/index' %>
+      </div>
     </aside>
   </div>
 <% else %>
