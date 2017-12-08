@@ -15,7 +15,7 @@
     <% end %>
   </aside>
   <% if current_user.admin? || current_user?(@user)%>
-    <!--% if @user.diets.any? %-->
+    <% if @user.diets.any? %>
       <aside class="col-md-8">
         <h3>Dietas</h3>
         <!--%= image_tag diet.picture.url if diet.picture? %-->
@@ -31,5 +31,5 @@
         -->
       </aside>
     <% end %>
-  <!--% end %-->
+  <% end %>
 </div>
